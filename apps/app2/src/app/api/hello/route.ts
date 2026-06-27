@@ -4,7 +4,7 @@ function corsHeaders() {
   return {
     "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Headers": "Content-Type", //application/jsonのcontent-typeは本ヘッダーなしだとエラーとなる。（text/plainはOK、プリフライト（OPTIONメソッド）も行わない）
   };
 }
 
@@ -20,7 +20,7 @@ export async function OPTIONS() {
 export async function GET() {
   return Response.json(
     { message: "Hello from app2!", method: "GET", cors: "allowed" },
-    { headers: corsHeaders() }
+    { headers: corsHeaders() },
   );
 }
 
@@ -28,7 +28,12 @@ export async function GET() {
 export async function POST(request: Request) {
   const body = await request.json();
   return Response.json(
-    { message: "Hello from app2!", method: "POST", received: body, cors: "allowed" },
-    { headers: corsHeaders() }
+    {
+      message: "Hello from app2!",
+      method: "POST",
+      received: body,
+      cors: "allowed",
+    },
+    { headers: corsHeaders() },
   );
 }
