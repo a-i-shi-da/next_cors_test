@@ -39,6 +39,7 @@ npm run dev:app2
 |----------|---------------|----------|
 | ✅ 正常系 GET | `/api/hello` | 200 レスポンス取得成功 |
 | ❌ エラー系 GET | `/api/hello-no-cors` | ブラウザがCORSエラーでブロック |
+| ✅ 正常系 GET（同一オリジンCORS設定なし） | `http://localhost:3000/api/hello` | 200 レスポンス取得成功 |
 | 🔍 プリフライト POST | `/api/hello` (POST) | OPTIONSリクエストが先行して飛ぶ |
 | 🍪 credentials付き | `/api/hello-credentials` | Cookie の送受信を確認 |
 
