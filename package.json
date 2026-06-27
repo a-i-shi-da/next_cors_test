@@ -1,0 +1,13 @@
+{
+  "name": "cors-demo",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:app1": "npm run dev -w apps/app1",
+    "dev:app2": "npm run dev -w apps/app2",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  }
+}
